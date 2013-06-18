@@ -73,7 +73,7 @@
         $tableBody.html("");
     }
 
-    //function that scraps info from DOT website and sets up internal data structures
+    //function that scrapes info from DOT website and sets up internal data structures
     var scrapeDOT = function () {
         spinner.spin();
         $spinner.html(spinner.el);
@@ -111,7 +111,7 @@
                 $container.show();
             },
             function error(response) {
-
+                //TODO: remove spinner and handle error
             },
             function progress(response) {
 
