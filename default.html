@@ -16,7 +16,15 @@
     <script src="/js/default.js"></script>
 </head>
 <body>
+    <div id="appBar" data-win-control="WinJS.UI.AppBar" data-win-options="">
+        <button id="RefreshButton"
+            data-win-control="WinJS.UI.AppBarCommand" 
+            data-win-options="{id:'cmdRefresh',label:'Refresh',icon:'refresh',
+                section:'global',tooltip:'Refresh Traffic Times'}">
+        </button>
+    </div>
     <div id="container">
+        <div id="timestampMessage"></div>
         <table id="data"><tbody></tbody></table>
     </div>
 </body>

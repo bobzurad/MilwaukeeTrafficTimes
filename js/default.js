@@ -1,4 +1,7 @@
-﻿(function () {
+﻿//TODO: icons
+//TODO: spinner
+//TODO: use minified js
+(function () {
     "use strict";
 
     WinJS.Binding.optimizeBindingReferences = true;
@@ -9,6 +12,8 @@
     var dataRows = [];
     var timestampMessage = null;
     var $tableBody = null;
+    var $timestampMessage = null;
+    var $cmdRefresh = null;
 
     //object to store data for each row
     function DataRow(title, time, delay) {
@@ -33,17 +38,27 @@
         "</tr>");
 
     var applyTemplates = function () {
+        $timestampMessage.html(timestampMessage);
         for (var i = 0; i < dataRows.length; i++) {
             $tableBody.append(templateRow(dataRows[i]));
         }
     };
+
+    var clear = function () {
+        dataRows = [];
+        $timestampMessage.html("");
+        $tableBody.html("");
+    }
 
     //function that scraps info from DOT website and sets up internal data structures
     var scrapeDOT = function () {
         WinJS.xhr({
             type: "GET",
             url: "http://www.dot.wi.gov/travel/milwaukee/times.htm",
-            responseType: "document"
+            responseType: "document",
+            headers: {
+                "If-Modified-Since": "Mon, 27 Mar 1972 00:00:00 GMT"    //prevents caching
+            }
         }).done(
             function complete(response) {
                 //parse HTML received
@@ -72,15 +87,26 @@
         );
     };
 
+    //click handler for Refresh button in AppBar
+    var onCmdRefresh = function (e) {
+        clear();
+        scrapeDOT();
+    };
+
     app.onactivated = function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
-                // TODO: This application has been newly launched. Initialize
+                // This application has been newly launched. Initialize
                 // your application here.
                 $tableBody = $("table#data").find("tbody");
+                $timestampMessage = $("#timestampMessage");
+
+                $cmdRefresh = $("#RefreshButton");
+                $cmdRefresh.on("click", onCmdRefresh);
+
                 scrapeDOT();
             } else {
-                // TODO: This application has been reactivated from suspension.
+                // This application has been reactivated from suspension.
                 // Restore application state here.
             }
             args.setPromise(WinJS.UI.processAll());
@@ -88,7 +114,7 @@
     };
 
     app.oncheckpoint = function (args) {
-        // TODO: This application is about to be suspended. Save any state
+        // This application is about to be suspended. Save any state
         // that needs to persist across suspensions here. You might use the
         // WinJS.Application.sessionState object, which is automatically
         // saved and restored across suspension. If you need to complete an

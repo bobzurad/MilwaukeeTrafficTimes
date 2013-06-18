@@ -4,6 +4,11 @@ div#container {
     overflow: auto;
 }
 
+div#timestampMessage {
+    font-size: 38px;
+    text-align: center;
+}
+
 table {
     font-size: 38px;
     width: 100%;
@@ -25,10 +30,16 @@ table {
     td.icon {
         display: none;
     }
+    div#timestampMessage {
+        font-size: 16px;
+    }
 }
 
 @media screen and (-ms-view-state: fullscreen-portrait) {
     table{
-        font-size: 36px;
+        font-size: 34px;
+    }
+    div#timestampMessage {
+        font-size: 30px;
     }
 }
