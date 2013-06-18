@@ -9,6 +9,15 @@ div#timestampMessage {
     text-align: center;
 }
 
+div.spinner {
+    position:absolute;
+    left:0;
+    right:0;
+    top: 50%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 table {
     font-size: 38px;
     width: 100%;
