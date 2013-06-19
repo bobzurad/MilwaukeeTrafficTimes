@@ -47,7 +47,9 @@
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <TargetPlatformVersion>8.0</TargetPlatformVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageCertificateKeyFile>MilwaukeeTrafficTimes_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>MilwaukeeTrafficTimes_StoreKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>506EE47BBED052D70DE3A83052399C274026EBDE</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="package.appxmanifest">
@@ -67,13 +69,18 @@
     <Content Include="images\YellowLight.png" />
     <Content Include="js\default.js" />
     <Content Include="css\default.css" />
+    <Content Include="Scripts\underscore.min.js.map" />
+    <None Include="Package.StoreAssociation.xml" />
+    <None Include="MilwaukeeTrafficTimes_StoreKey.pfx" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-2.0.2.intellisense.js" />
     <Content Include="Scripts\jquery-2.0.2.js" />
     <Content Include="Scripts\jquery-2.0.2.min.js" />
+    <Content Include="Scripts\jquery-2.0.2.min.js.map" />
     <Content Include="Scripts\jquery-2.0.2.min.map" />
     <Content Include="Scripts\spin.js" />
     <Content Include="Scripts\spin.min.js" />
+    <Content Include="Scripts\spin.min.js.map" />
     <Content Include="Scripts\underscore.js" />
     <Content Include="Scripts\underscore.min.js" />
     <None Include="MilwaukeeTrafficTimes_TemporaryKey.pfx" />
