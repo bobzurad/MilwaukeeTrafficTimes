@@ -1,6 +1,4 @@
-﻿//TODO: icons
-//TODO: use minified js
-(function () {
+﻿(function () {
     "use strict";
 
     WinJS.Binding.optimizeBindingReferences = true;
