@@ -154,5 +154,12 @@
         // args.setPromise().
     };
 
+    //setup privacy page in settings flyout
+    WinJS.Application.onsettings = function (e) {
+        e.detail.applicationcommands =
+           { "privacy": { title: "Privacy", href: "/privacy.html" } };
+        WinJS.UI.SettingsFlyout.populateSettings(e);
+    };
+
     app.start();
 })();
