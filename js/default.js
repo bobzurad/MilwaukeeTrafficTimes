@@ -88,7 +88,7 @@
         }).done(
             function complete(response) {
                 //parse HTML received
-                var DOThtml = response.response.childNodes[0].innerHTML;
+                var DOThtml = window.toStaticHTML(response.response.childNodes[1].innerHTML);
                 var DOTtable = $(DOThtml).find("h2").siblings("table")[0].innerHTML;
                 $(DOTtable).children("tr").each(function (i, el) {
                     if (i == 0) {
