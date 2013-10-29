@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="10419BobZurad.MilwaukeeTrafficTimes" Version="1.0.0.3" Publisher="CN=EC39BE2F-2910-4084-8019-1883FAC50E9C" />
+  <Identity Name="10419BobZurad.MilwaukeeTrafficTimes" Version="1.0.0.4" Publisher="CN=EC39BE2F-2910-4084-8019-1883FAC50E9C" />
   <Properties>
     <DisplayName>Milwaukee Traffic Times</DisplayName>
     <PublisherDisplayName>Bob Zurad</PublisherDisplayName>
@@ -16,7 +16,7 @@
   <Applications>
     <Application Id="App" StartPage="default.html">
       <VisualElements DisplayName="Milwaukee Traffic Times" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="A simple app that displays various travel times for the Milwaukee metro area." ForegroundText="light" BackgroundColor="#464646">
-        <DefaultTile ShowName="allLogos" />
+        <DefaultTile ShowName="logoOnly" />
         <SplashScreen Image="images\splashscreen.png" />
       </VisualElements>
     </Application>
